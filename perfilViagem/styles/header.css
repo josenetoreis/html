@@ -19,6 +19,13 @@ header .container {
   
 }
 
+#profile img {
+  width: 176px;
+  height: 176px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 #profile h1 {
   font: var(--text-lg);
   color: var(--text-color-primary);
@@ -32,7 +39,7 @@ header .container {
   display: flex;
   flex-direction: column;
   gap: 16px;
-
+  width: 280px;
 } 
 
 #info li {
