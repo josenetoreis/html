@@ -1,0 +1,539 @@
+/* ════════════════════════════════════════════
+   SECTIONS.CSS — Sobre, Skills, Projetos, Contato, Footer
+   ════════════════════════════════════════════ */
+
+/* ════════════════════════════════════════════
+   SECÇÃO SOBRE
+   ════════════════════════════════════════════ */
+.sobre {
+  background: var(--color-surface);
+}
+
+.sobre-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: center;
+}
+
+.sobre-text p {
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+/* Cards de estatísticas */
+.sobre-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.stat-card {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem 2rem;
+  background: var(--color-surface-2);
+  border-radius: var(--radius);
+  border: 1px solid rgba(108,99,255,.12);
+  transition: transform .35s var(--spring), box-shadow .35s var(--ease);
+  /* Perspectiva 3D ao hover */
+  transform-style: preserve-3d;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px) scale(1.02) rotateX(2deg);
+  box-shadow: var(--shadow-md);
+}
+
+.stat-num {
+  font-family: var(--font-display);
+  font-size: 2.6rem;
+  font-weight: 800;
+  background: var(--grad-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: .9rem;
+  color: var(--color-text-muted);
+  font-weight: 400;
+}
+
+/* Responsivo sobre */
+@media (max-width: 768px) {
+  .sobre-grid { grid-template-columns: 1fr; }
+}
+
+/* ════════════════════════════════════════════
+   SECÇÃO SKILLS
+   ════════════════════════════════════════════ */
+.skills-section {
+  background: var(--color-bg);
+  position: relative;
+}
+
+/* Decoração de fundo das skills */
+.skills-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    radial-gradient(ellipse 60% 40% at 80% 20%, rgba(108,99,255,.07) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 30% at 10% 80%, rgba(67,217,173,.06) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+/* Grid de skills */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Card de skill individual */
+.skill-card {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  padding: 2rem;
+  border: 1px solid rgba(108,99,255,.1);
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform .4s var(--spring),
+    box-shadow .4s var(--ease),
+    border-color .3s;
+  /* Base para tilt 3D via JS */
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* Brilho de canto no hover */
+.skill-card::before {
+  content: '';
+  position: absolute;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background: conic-gradient(
+    from 180deg at 50% 50%,
+    rgba(108,99,255,.08) 0deg,
+    rgba(255,101,132,.06) 90deg,
+    rgba(67,217,173,.06) 180deg,
+    transparent 360deg
+  );
+  opacity: 0;
+  transition: opacity .4s;
+  pointer-events: none;
+}
+
+.skill-card:hover {
+  transform: translateY(-8px) rotateX(4deg) rotateY(-2deg);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(108,99,255,.3);
+}
+
+.skill-card:hover::before { opacity: 1; }
+
+/* Ícone do skill */
+.skill-icon {
+  width: 52px; height: 52px;
+  border-radius: 14px;
+  background: var(--color-surface-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.3rem;
+  transition: background .3s, transform .3s var(--spring);
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-icon::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--grad-accent);
+  opacity: 0;
+  border-radius: inherit;
+  transition: opacity .3s;
+}
+
+.skill-card:hover .skill-icon {
+  transform: scale(1.1) rotate(-5deg);
+}
+
+.skill-card:hover .skill-icon::after { opacity: 1; }
+
+.skill-icon svg {
+  width: 26px; height: 26px;
+  color: var(--color-accent-1);
+  position: relative;
+  z-index: 1;
+  transition: color .3s;
+}
+
+.skill-card:hover .skill-icon svg { color: #fff; }
+
+.skill-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: .5rem;
+  color: var(--color-text);
+}
+
+.skill-card p {
+  font-size: .88rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+}
+
+/* Barra de progresso */
+.skill-bar {
+  height: 5px;
+  background: var(--color-surface-2);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.skill-fill {
+  height: 100%;
+  width: 0%; /* Animado por JS */
+  background: var(--grad-accent);
+  border-radius: 99px;
+  transition: width 1.2s cubic-bezier(.25,.46,.45,.94);
+  position: relative;
+}
+
+/* Brilho pulsante na barra */
+.skill-fill::after {
+  content: '';
+  position: absolute;
+  right: -2px; top: 50%;
+  transform: translateY(-50%);
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.9);
+  box-shadow: 0 0 8px var(--color-accent-1);
+  opacity: 0;
+  transition: opacity .3s .8s;
+}
+
+.skill-card:hover .skill-fill::after,
+.skill-fill.animated::after { opacity: 1; }
+
+/* ════════════════════════════════════════════
+   SECÇÃO PROJETOS
+   ════════════════════════════════════════════ */
+.projetos-section {
+  background: var(--color-surface);
+}
+
+.projetos-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+/* Card de projeto */
+.projeto-card {
+  background: var(--color-surface-2);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid rgba(108,99,255,.1);
+  transition:
+    transform .4s var(--spring),
+    box-shadow .4s var(--ease);
+  transform-style: preserve-3d;
+}
+
+.projeto-card:hover {
+  transform: translateY(-10px) scale(1.02) rotateX(3deg);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Imagem/área visual do projeto */
+.projeto-img {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+}
+
+/* Gradientes únicos para cada projeto */
+.projeto-img-1 {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+.projeto-img-2 {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+.projeto-img-3 {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+.projeto-img-4 {
+  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+}
+
+/* Textura de grade sobre o gradiente */
+.projeto-img::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+/* Número do projeto */
+.projeto-num {
+  position: absolute;
+  bottom: 1rem; right: 1.2rem;
+  font-family: var(--font-display);
+  font-size: 5rem;
+  font-weight: 800;
+  color: rgba(255,255,255,.15);
+  line-height: 1;
+  letter-spacing: -.05em;
+  user-select: none;
+}
+
+/* Overlay com link do github */
+.projeto-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(20,10,60,.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity .35s var(--ease);
+  backdrop-filter: blur(4px);
+}
+
+.projeto-card:hover .projeto-overlay { opacity: 1; }
+
+.projeto-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  padding: .8rem 1.6rem;
+  background: rgba(255,255,255,.15);
+  border: 2px solid rgba(255,255,255,.4);
+  border-radius: 99px;
+  color: #fff;
+  text-decoration: none;
+  font-size: .88rem;
+  font-weight: 500;
+  transition: background .3s, transform .3s var(--spring);
+  backdrop-filter: blur(10px);
+}
+
+.projeto-link:hover {
+  background: rgba(255,255,255,.28);
+  transform: scale(1.06);
+}
+
+.projeto-link svg {
+  width: 18px; height: 18px;
+}
+
+/* Info do projeto */
+.projeto-info {
+  padding: 1.5rem 1.8rem 1.8rem;
+}
+
+.projeto-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-bottom: 1rem;
+}
+
+.projeto-tags span {
+  padding: .3rem .8rem;
+  border-radius: 99px;
+  background: rgba(108,99,255,.1);
+  border: 1px solid rgba(108,99,255,.2);
+  font-size: .72rem;
+  font-weight: 500;
+  color: var(--color-accent-1);
+  letter-spacing: .03em;
+  transition: background .3s, color .3s;
+}
+
+.projeto-card:hover .projeto-tags span {
+  background: rgba(108,99,255,.18);
+}
+
+.projeto-info h3 {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: .5rem;
+}
+
+.projeto-info p {
+  font-size: .88rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* Responsivo projetos */
+@media (max-width: 768px) {
+  .projetos-grid { grid-template-columns: 1fr; }
+}
+
+/* ════════════════════════════════════════════
+   SECÇÃO CONTATO
+   ════════════════════════════════════════════ */
+.contato-section {
+  background: var(--color-bg);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Bola decorativa de fundo */
+.contato-section::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+    rgba(108,99,255,.08) 0%,
+    rgba(255,101,132,.05) 40%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.contato-section .section-label,
+.contato-section .section-title {
+  text-align: center;
+}
+
+.contato-desc {
+  color: var(--color-text-muted);
+  font-size: 1.1rem;
+  margin-bottom: 2.5rem;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Botão de contato especial */
+.contato-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.1rem 2.5rem;
+  background: var(--grad-accent);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  border-radius: 99px;
+  text-decoration: none;
+  box-shadow:
+    0 10px 30px rgba(108,99,255,.4),
+    0 0 0 0 rgba(108,99,255,.4);
+  transition:
+    transform .4s var(--spring),
+    box-shadow .4s var(--ease);
+  position: relative;
+  overflow: hidden;
+  animation: contato-pulse 3s ease-in-out infinite;
+}
+
+@keyframes contato-pulse {
+  0%, 100% { box-shadow: 0 10px 30px rgba(108,99,255,.4), 0 0 0 0 rgba(108,99,255,.3); }
+  50%       { box-shadow: 0 16px 50px rgba(108,99,255,.5), 0 0 0 12px rgba(108,99,255,.0); }
+}
+
+.contato-btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,.2), transparent);
+  opacity: 0;
+  transition: opacity .3s;
+}
+
+.contato-btn:hover {
+  transform: translateY(-4px) scale(1.05);
+  animation: none;
+  box-shadow: 0 20px 60px rgba(108,99,255,.55);
+}
+
+.contato-btn:hover::after { opacity: 1; }
+
+.contato-btn svg {
+  width: 22px; height: 22px;
+  transition: transform .3s var(--spring);
+}
+
+.contato-btn:hover svg { transform: translateX(5px); }
+
+/* ════════════════════════════════════════════
+   FOOTER
+   ════════════════════════════════════════════ */
+.footer {
+  padding: 2rem 0;
+  background: var(--color-surface);
+  border-top: 1px solid rgba(108,99,255,.08);
+}
+
+.footer .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer span {
+  font-size: .85rem;
+  color: var(--color-text-light);
+}
+
+/* ════════════════════════════════════════════
+   ANIMAÇÕES DE ENTRADA (scroll)
+   ════════════════════════════════════════════ */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity .8s var(--ease),
+    transform .8s var(--ease);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Delay escalonado para os cards */
+.skill-card:nth-child(1) { transition-delay: .05s; }
+.skill-card:nth-child(2) { transition-delay: .12s; }
+.skill-card:nth-child(3) { transition-delay: .19s; }
+.skill-card:nth-child(4) { transition-delay: .26s; }
+.skill-card:nth-child(5) { transition-delay: .33s; }
+.skill-card:nth-child(6) { transition-delay: .40s; }
+
+.projeto-card:nth-child(1) { transition-delay: .05s; }
+.projeto-card:nth-child(2) { transition-delay: .15s; }
+.projeto-card:nth-child(3) { transition-delay: .25s; }
+.projeto-card:nth-child(4) { transition-delay: .35s; }
+
+.stat-card:nth-child(1) { transition-delay: .05s; }
+.stat-card:nth-child(2) { transition-delay: .15s; }
+.stat-card:nth-child(3) { transition-delay: .25s; }

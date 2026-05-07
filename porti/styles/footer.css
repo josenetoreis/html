@@ -1,0 +1,8 @@
+/* Arrumando o finalzinho da página */
+.rodape {
+    text-align: center;
+    padding: 25px;
+    background-color: var(--cor-fundo);
+    font-size: 14px;
+    color: var(--cor-texto-suave); /* Uma cor bem suave para não distrair */
+}

@@ -1,0 +1,119 @@
+/* components.css
+   Comentários em português:
+   - Cards, formulários, animações e toggle de tema.
+*/
+
+/* Projects */
+.projects { padding: 2.25rem 0; }
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+.project-card {
+  background: var(--card);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.03);
+  transition: transform 260ms cubic-bezier(.2,.9,.2,1), box-shadow 260ms, background 260ms;
+}
+.project-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 18px 40px rgba(2,6,23,0.6);
+}
+.project-media img { width:100%; height:160px; object-fit:cover; display:block; }
+.project-body { padding:1rem; }
+.project-title { margin:0 0 0.5rem 0; font-size:1rem; color:var(--text); }
+.project-desc { margin:0 0 0.75rem 0; color:var(--muted); }
+.project-link { color:var(--accent-2); font-weight:600; }
+
+/* Contact form */
+.contact { padding:2rem 0 3rem 0; }
+.contact-form { margin-top:1rem; display:grid; gap:0.75rem; max-width:720px; }
+.contact-form label { display:flex; flex-direction:column; gap:0.35rem; color:var(--muted); font-size:0.9rem; }
+.contact-form input, .contact-form textarea {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.04);
+  padding: 0.6rem 0.75rem;
+  border-radius: 8px;
+  color: var(--text);
+  outline: none;
+}
+.contact-form input::placeholder, .contact-form textarea::placeholder { color: rgba(255,255,255,0.18); }
+.form-actions { display:flex; gap:0.5rem; align-items:center; }
+
+/* Acessibilidade: foco visível */
+button:focus, a:focus, input:focus, textarea:focus {
+  outline: 3px solid rgba(96,165,250,0.18);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Toggle de tema (CSS-only) */
+/* Esconder checkbox visualmente (a11y preservado) */
+.theme-toggle { position: fixed; left: -9999px; opacity: 0; }
+
+/* Label visual do toggle (botão flutuante) */
+.theme-toggle-label {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 60;
+  background: var(--card);
+  color: var(--text);
+  padding: 0.5rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.04);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  transition: transform 180ms ease, background 180ms ease, color 180ms ease, border-color 180ms ease;
+}
+
+/* Ícones dentro do label */
+.theme-toggle-label .sun { opacity: 1; transform: translateY(0); transition: opacity 180ms ease, transform 180ms ease; }
+.theme-toggle-label .moon { opacity: 0.35; transform: translateY(0); transition: opacity 180ms ease, transform 180ms ease; }
+
+/* Quando o checkbox estiver checked, sobrescrevemos variáveis no .site */
+#theme-toggle:checked ~ .site {
+  /* Tema claro: fundo branco e janelas azuis (estilo Microsoft) */
+  --bg: #ffffff;
+  --bg-2: #f3f6fb;
+  --card: #eaf3ff;           /* janelas em azul muito claro */
+  --card-accent: #cfe6ff;    /* borda/variação */
+  --text: #0b1220;
+  --muted: #475569;
+  --accent: #0078d4;         /* azul Microsoft */
+  --accent-2: #005a9e;       /* azul mais escuro */
+  --glass: rgba(11,18,32,0.03);
+  --shadow: 0 8px 24px rgba(11,18,32,0.06);
+
+  --page-gradient: linear-gradient(180deg, var(--bg), var(--bg-2) 120%);
+  --card-gradient: linear-gradient(180deg, rgba(11,18,32,0.02), rgba(11,18,32,0.01));
+}
+
+/* Ajustes visuais do label quando toggled */
+#theme-toggle:checked + .theme-toggle-label { transform: translateY(-2px); }
+#theme-toggle:checked + .theme-toggle-label .sun { opacity: 0.35; transform: translateY(-2px); }
+#theme-toggle:checked + .theme-toggle-label .moon { opacity: 1; transform: translateY(-2px); }
+
+/* Ajustes para imagens e sombras no tema claro */
+#theme-toggle:checked ~ .site .profile-photo {
+  box-shadow: 0 6px 18px rgba(11,18,32,0.06);
+  border-color: rgba(11,18,32,0.06);
+  filter: none;
+}
+#theme-toggle:checked ~ .site .project-card {
+  border-color: rgba(11,18,32,0.04);
+}
+
+/* Responsividade */
+@media (max-width: 980px) {
+  .projects-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .projects-grid { grid-template-columns: 1fr; }
+}

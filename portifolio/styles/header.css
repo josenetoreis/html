@@ -1,0 +1,322 @@
+/* ════════════════════════════════════════════
+   HEADER.CSS — Nav + Hero + Orbe 3D Azul
+   ════════════════════════════════════════════ */
+
+/* ── Navegação ── */
+.nav {
+  position: fixed; top:0; left:0; right:0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.1rem clamp(1.5rem, 5vw, 4rem);
+  background: rgba(242,246,252,.75);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(0,120,212,.08);
+  transition: background .35s, box-shadow .35s;
+}
+.nav.scrolled {
+  background: rgba(242,246,252,.95);
+  box-shadow: 0 2px 24px rgba(0,120,212,.10);
+}
+
+/* Logo */
+.nav-logo {
+  font-family: var(--font-display);
+  font-weight: 900; font-size: 1.5rem;
+  color: var(--navy);
+  letter-spacing: -.01em;
+}
+.nav-logo span { color: var(--blue); }
+
+/* Links nav */
+.nav-links { list-style:none; display:flex; gap:2.2rem; }
+.nav-links a {
+  font-family: var(--font-body);
+  font-size: .88rem; font-weight: 500;
+  color: var(--muted); text-decoration: none;
+  position: relative; transition: color .25s;
+}
+.nav-links a::after {
+  content:''; position:absolute;
+  bottom:-4px; left:0; width:0; height:2px;
+  background: var(--blue); border-radius:99px;
+  transition: width .3s var(--ease);
+}
+.nav-links a:hover { color: var(--blue); }
+.nav-links a:hover::after { width:100%; }
+
+/* ── Hero ── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  background: var(--grad-hero);
+  overflow: hidden;
+}
+
+/* Formas geométricas de fundo */
+.hero::before {
+  content: '';
+  position: absolute; top:-20%; right:-8%;
+  width: 65vmax; height: 65vmax;
+  background: radial-gradient(circle,
+    rgba(0,120,212,.09) 0%,
+    rgba(43,136,216,.04) 45%,
+    transparent 68%
+  );
+  border-radius: 50%; pointer-events:none;
+}
+.hero::after {
+  content: '';
+  position: absolute; bottom:-18%; left:-5%;
+  width: 45vmax; height: 45vmax;
+  background: radial-gradient(circle,
+    rgba(0,120,212,.06) 0%,
+    transparent 65%
+  );
+  border-radius: 50%; pointer-events:none;
+}
+
+/* Linhas decorativas de grade no fundo */
+.hero-grid-lines {
+  position: absolute; inset:0; pointer-events:none; z-index:0;
+  background-image:
+    linear-gradient(rgba(0,120,212,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,120,212,.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+}
+
+/* ── Conteúdo hero ── */
+.hero-content {
+  position: relative; z-index:2;
+  padding: clamp(6rem,12vw,9rem) clamp(1.5rem,5vw,4rem) clamp(3rem,6vw,5rem);
+  animation: fadeUp .9s var(--ease) both;
+}
+
+/* Badge */
+.hero-badge {
+  display: inline-flex; align-items:center; gap:.5rem;
+  padding: .38rem 1rem;
+  background: rgba(0,120,212,.09);
+  border: 1px solid rgba(0,120,212,.25);
+  border-radius: 6px;
+  font-size:.75rem; font-weight:600;
+  color: var(--blue); letter-spacing:.06em;
+  margin-bottom: 2rem;
+  animation: fadeUp .7s .2s var(--ease) both;
+}
+.hero-badge::before {
+  content:'';
+  width:7px; height:7px; border-radius:50%;
+  background: var(--blue);
+  box-shadow: 0 0 6px var(--blue);
+  animation: blink 2s ease-in-out infinite;
+}
+@keyframes blink {
+  0%,100% { opacity:1; } 50% { opacity:.3; }
+}
+
+/* Nome principal — Playfair serif elegante */
+.hero-title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(3.8rem, 10vw, 8.5rem);
+  line-height: .94;
+  letter-spacing: -.03em;
+  margin-bottom: .8rem;
+  display: flex; flex-direction:column;
+  animation: fadeUp .85s .3s var(--ease) both;
+}
+.title-line { color: var(--navy); }
+.title-line.accent {
+  font-style: italic;
+  color: var(--blue);
+  /* Brilho sutil */
+  text-shadow: 0 0 80px rgba(0,120,212,.25);
+}
+
+/* Subtítulo */
+.hero-sub {
+  font-family: var(--font-body);
+  font-size: clamp(.95rem, 2vw, 1.15rem);
+  font-weight: 300; letter-spacing:.1em;
+  text-transform: uppercase; color: var(--muted);
+  margin-bottom: 1.3rem;
+  min-height: 1.5em;
+  animation: fadeUp .8s .4s var(--ease) both;
+}
+
+/* Descrição */
+.hero-desc {
+  font-size: clamp(.88rem, 1.5vw, 1rem);
+  color: var(--muted); line-height:1.8;
+  max-width: 480px; margin-bottom: 2.5rem;
+  animation: fadeUp .8s .5s var(--ease) both;
+}
+
+/* Botões */
+.hero-cta {
+  display:flex; gap:1rem; flex-wrap:wrap;
+  animation: fadeUp .8s .6s var(--ease) both;
+}
+
+/* ── Orbe 3D ── */
+.hero-orb-wrap {
+  position: relative; z-index:1;
+  padding: clamp(2rem,5vw,4rem) clamp(2rem,5vw,5rem) clamp(2rem,5vw,4rem) 1rem;
+  padding-top: clamp(5rem,12vw,9rem);
+  display:flex; align-items:center; justify-content:center;
+  animation: float 8s ease-in-out infinite;
+}
+
+.orb {
+  position:relative;
+  width: clamp(200px, 25vw, 360px);
+  height: clamp(200px, 25vw, 360px);
+}
+
+/* Esfera principal — vidro azul */
+.orb-inner {
+  position:absolute; inset:12%;
+  border-radius:50%;
+  background: radial-gradient(
+    circle at 32% 30%,
+    rgba(255,255,255,.95) 0%,
+    rgba(199,223,244,.9) 18%,
+    rgba(43,136,216,.85) 45%,
+    rgba(0,90,158,.9) 70%,
+    rgba(8,40,66,.95) 100%
+  );
+  box-shadow:
+    inset -18px -18px 38px rgba(0,0,0,.22),
+    inset 12px 12px 28px rgba(255,255,255,.55),
+    0 30px 70px rgba(0,120,212,.45),
+    0 0 100px rgba(0,120,212,.22);
+  animation: pulse-blue 3.5s ease-in-out infinite;
+}
+
+/* Reflexo especular */
+.orb-inner::after {
+  content:'';
+  position:absolute; top:14%; left:18%;
+  width:32%; height:22%;
+  background: radial-gradient(ellipse, rgba(255,255,255,.85), transparent);
+  border-radius:50%;
+  filter:blur(5px);
+  transform:rotate(-25deg);
+}
+
+/* Anéis */
+.orb-ring {
+  position:absolute; inset:0;
+  border-radius:50%;
+  border: 1.5px solid transparent;
+}
+.ring-1 {
+  border-color: rgba(0,120,212,.3) rgba(0,120,212,.05) rgba(0,120,212,.3) rgba(0,120,212,.05);
+  animation: spin-slow 9s linear infinite;
+  box-shadow: 0 0 18px rgba(0,120,212,.18);
+}
+.ring-2 {
+  inset:-9%;
+  border-color: rgba(43,136,216,.2) transparent rgba(43,136,216,.2) transparent;
+  animation: spin-rev 14s linear infinite;
+  border-width:1px;
+}
+.ring-3 {
+  inset:-20%;
+  border-color: rgba(0,120,212,.12) transparent transparent transparent;
+  animation: spin-slow 20s linear infinite;
+  border-width:1px;
+}
+
+/* Halo externo */
+.orb-glow {
+  position:absolute; inset:-35%;
+  border-radius:50%;
+  background: radial-gradient(circle,
+    rgba(0,120,212,.14) 0%,
+    rgba(43,136,216,.06) 40%,
+    transparent 68%
+  );
+  filter:blur(18px);
+  animation: pulse-blue 4s ease-in-out infinite alternate;
+}
+
+/* Partículas orbitais decorativas */
+.orb-dot {
+  position:absolute;
+  width:8px; height:8px;
+  background: var(--blue-light);
+  border-radius:50%;
+  box-shadow: 0 0 10px var(--blue), 0 0 20px rgba(0,120,212,.5);
+}
+.orb-dot-1 { top:8%; left:50%; animation: orbit-1 6s linear infinite; }
+.orb-dot-2 { top:50%; right:5%; animation: orbit-2 9s linear infinite; }
+.orb-dot-3 { bottom:10%; left:30%; animation: orbit-3 7s linear infinite; }
+
+@keyframes orbit-1 {
+  0%   { transform:rotate(0deg)   translateX(110px) rotate(0deg);   opacity:.9; }
+  50%  { opacity:.4; }
+  100% { transform:rotate(360deg) translateX(110px) rotate(-360deg);opacity:.9; }
+}
+@keyframes orbit-2 {
+  0%   { transform:rotate(120deg) translateX(120px) rotate(-120deg); opacity:.7; }
+  50%  { opacity:.2; }
+  100% { transform:rotate(480deg) translateX(120px) rotate(-480deg); opacity:.7; }
+}
+@keyframes orbit-3 {
+  0%   { transform:rotate(240deg) translateX(105px) rotate(-240deg); opacity:.8; }
+  50%  { opacity:.3; }
+  100% { transform:rotate(600deg) translateX(105px) rotate(-600deg); opacity:.8; }
+}
+
+/* ── Scroll hint ── */
+.scroll-hint {
+  position:absolute; bottom:2rem; left:50%;
+  transform:translateX(-50%);
+  display:flex; flex-direction:column; align-items:center; gap:.5rem;
+  z-index:2; animation: fadeUp .8s 1.3s var(--ease) both;
+}
+.scroll-hint span {
+  font-size:.68rem; letter-spacing:.22em;
+  text-transform:uppercase; color:var(--light);
+}
+.scroll-line {
+  width:1px; height:48px;
+  background: linear-gradient(to bottom, var(--blue), transparent);
+  animation: scroll-anim 2.2s ease-in-out infinite;
+}
+@keyframes scroll-anim {
+  0%,100% { opacity:.3; transform:scaleY(1); transform-origin:top; }
+  50%     { opacity:1;  transform:scaleY(1.15); }
+}
+
+/* ── Responsivo ── */
+@media (max-width:960px) {
+  .hero { grid-template-columns:1fr; }
+  .hero-orb-wrap {
+    padding: 0 2rem 3rem;
+    justify-content:center;
+    animation: float 8s ease-in-out infinite;
+  }
+  .orb { width:220px; height:220px; }
+  @keyframes orbit-1 {
+    0%   { transform:rotate(0deg)   translateX(80px) rotate(0deg); }
+    100% { transform:rotate(360deg) translateX(80px) rotate(-360deg); }
+  }
+  @keyframes orbit-2 {
+    0%   { transform:rotate(120deg) translateX(85px) rotate(-120deg); }
+    100% { transform:rotate(480deg) translateX(85px) rotate(-480deg); }
+  }
+  @keyframes orbit-3 {
+    0%   { transform:rotate(240deg) translateX(78px) rotate(-240deg); }
+    100% { transform:rotate(600deg) translateX(78px) rotate(-600deg); }
+  }
+}
+@media (max-width:600px) {
+  .nav-links { display:none; }
+  .orb { width:180px; height:180px; }
+}

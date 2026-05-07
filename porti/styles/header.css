@@ -1,0 +1,37 @@
+/* Organizando o topo do site */
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 50px;
+    background-color: var(--cor-fundo-claro);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Sombra suave embaixo do menu */
+}
+
+/* Visual do seu nome (a logo) */
+.logo {
+    font-size: 26px;
+    font-weight: bold;
+    color: var(--cor-viva);
+    letter-spacing: 1px; /* Espaço um pouco maior entre as letras */
+}
+
+/* Arrumando a lista de links */
+.menu {
+    list-style: none; /* Tira as bolinhas da lista */
+    display: flex;
+    gap: 30px; /* Espaço entre os links */
+}
+
+/* Visual dos links */
+.menu a {
+    color: var(--cor-texto);
+    text-decoration: none; /* Tira a linha de baixo do texto */
+    font-weight: bold;
+    transition: 0.3s; /* Faz a mudança de cor ser bem suave */
+}
+
+/* O que acontece quando o mouse passa por cima do link */
+.menu a:hover {
+    color: var(--cor-viva);
+}

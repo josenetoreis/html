@@ -1,0 +1,31 @@
+/* Dando espaço para a página não ficar apertada */
+.sessao {
+    padding: 90px 20px;
+    text-align: center;
+}
+
+/* Fundo alternativo usando nosso azul escuro claro */
+.sessao-escura {
+    background-color: var(--cor-fundo-claro);
+}
+
+/* Tamanho do texto de boas-vindas */
+.titulo-principal {
+    font-size: 44px;
+    margin-bottom: 20px;
+}
+
+/* Tamanho do título da parte de trabalhos */
+.titulo-sessao {
+    font-size: 34px;
+    color: var(--cor-texto);
+    margin-bottom: 50px;
+}
+
+/* Visual agradável para os textos longos */
+.texto-sessao {
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 18px;
+    color: var(--cor-texto-suave);
+}

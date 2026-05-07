@@ -1,0 +1,42 @@
+/* Desenhando a grade para as 4 fotos */
+.grade-projetos {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Duas colunas lado a lado */
+    gap: 40px; /* Espaço entre os cartões */
+    max-width: 900px;
+    margin: 0 auto; /* Centraliza tudo no meio da tela */
+}
+
+/* O fundo e o formato de cada projeto */
+.cartao-projeto {
+    background-color: var(--cor-fundo);
+    border-radius: 10px; /* Cantos arredondados */
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra elegante */
+    transition: 0.4s; /* Deixa o movimento muito suave */
+}
+
+/* O efeito de "flutuar" ao passar o mouse por cima do cartão */
+.cartao-projeto:hover {
+    transform: translateY(-8px); /* Sobe um pouquinho */
+    box-shadow: 0 8px 25px rgba(78, 168, 222, 0.15); /* A sombra fica maior e levemente azulada */
+}
+
+/* Ajustando a foto para caber direitinho */
+.foto-projeto {
+    width: 100%;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+/* O título do projeto (Projeto 1, Projeto 2...) */
+.titulo-projeto {
+    color: var(--cor-viva);
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+/* O texto debaixo do título do projeto */
+.cartao-projeto p {
+    color: var(--cor-texto-suave);
+}

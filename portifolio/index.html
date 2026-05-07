@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>José Paulo — Desenvolvedor Full Stack</title>
+  <link rel="stylesheet" href="styles/index.css"/>
+</head>
+<body>
+
+  <!-- Cursor personalizado -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- Canvas de partículas azuis -->
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- ══════════ HEADER / HERO ══════════ -->
+  <header class="hero" id="hero">
+    <!-- Grade decorativa de fundo -->
+    <div class="hero-grid-lines"></div>
+
+    <nav class="nav">
+      <div class="nav-logo">José<span>Paulo</span></div>
+      <ul class="nav-links">
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+
+    <!-- Conteúdo principal -->
+    <div class="hero-content">
+      <div class="hero-badge">Disponível para projetos</div>
+
+      <h1 class="hero-title">
+        <span class="title-line">José</span>
+        <span class="title-line accent">Paulo</span>
+      </h1>
+
+      <p class="hero-sub" id="heroSub">Desenvolvedor Full Stack</p>
+
+      <p class="hero-desc">
+        Construo produtos digitais com código limpo, design<br />
+        preciso e tecnologias modernas que entregam resultado.
+      </p>
+
+      <div class="hero-cta">
+        <a href="#projetos" class="btn-primary">Ver Projetos</a>
+        <a href="#contato" class="btn-ghost">Falar comigo</a>
+      </div>
+    </div>
+
+    <!-- Orbe 3D -->
+    <div class="hero-orb-wrap">
+      <div class="orb">
+        <div class="orb-inner"></div>
+        <div class="orb-ring ring-1"></div>
+        <div class="orb-ring ring-2"></div>
+        <div class="orb-ring ring-3"></div>
+        <div class="orb-glow"></div>
+        <div class="orb-dot orb-dot-1"></div>
+        <div class="orb-dot orb-dot-2"></div>
+        <div class="orb-dot orb-dot-3"></div>
+      </div>
+    </div>
+
+    <!-- Scroll hint -->
+    <div class="scroll-hint">
+      <span>scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ══════════ SOBRE ══════════ -->
+    <section class="section sobre" id="sobre">
+      <div class="container">
+        <div class="section-label">Sobre mim</div>
+        <div class="sobre-grid">
+          <div class="sobre-text">
+            <h2 class="section-title">Código com <em>propósito</em></h2>
+            <p>
+              Sou José Paulo, desenvolvedor apaixonado por construir experiências digitais
+              que funcionam de verdade. Trabalho com front-end, back-end e mobile —
+              sempre com foco na qualidade e na experiência do utilizador.
+            </p>
+            <p>
+              Acredito que bom software é aquele que resolve problemas reais com elegância.
+              Cada linha de código importa, cada detalhe de design faz a diferença.
+            </p>
+          </div>
+          <div class="sobre-stats">
+            <div class="stat-card">
+              <span class="stat-num">+4</span>
+              <span class="stat-label">Anos de experiência em desenvolvimento</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-num">+20</span>
+              <span class="stat-label">Projetos concluídos com sucesso</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-num">6</span>
+              <span class="stat-label">Tecnologias no arsenal técnico</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ SKILLS ══════════ -->
+    <section class="section skills-section" id="skills">
+      <div class="container">
+        <div class="section-label">Tecnologias</div>
+        <h2 class="section-title">O meu <em>arsenal</em></h2>
+
+        <div class="skills-grid">
+
+          <!-- HTML -->
+          <div class="skill-card" data-tilt>
+            <div class="skill-icon">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M4 3l1.5 16L12 21l6.5-2L20 3H4z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                <path d="M8 8h8l-.4 5-3.6 1.2L8.4 13 8.2 11H16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>HTML</h3>
+            <p>Semântica, acessibilidade e estrutura sólida para qualquer projeto.</p>
+            <div class="skill-bar"><div class="skill-fill" style="--w:95%"></div></div>
+          </div>
+
+          <!-- CSS -->
+          <div class="skill-card" data-tilt>
+            <div class="skill-icon">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M4 3l1.5 16L12 21l6.5-2L20 3H4z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                <path d="M8 8h8l-.3 4-3.7 1-3.8-.9-.1-1.8H15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>CSS</h3>
+            <p>Animações, layouts responsivos e design pixel-perfect.</p>
+            <div class="skill-bar"><div class="skill-fill" style="--w:90%"></div></div>
+          </div>
+
+          <!-- JavaScript -->
+          <div class="skill-card" data-tilt>
+            <div class="skill-icon">
+              <svg viewBox="0 0 24 24" fill="none">
+                <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.6"/>
+                <path d="M8 17v-6M12 17v-3c0-1.1.9-2 2-2s2 .9 2 2v3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>JavaScript</h3>
+            <p>ES6+, DOM manipulation, async/await e lógica avançada.</p>
+            <div class="skill-bar"><div class="skill-fill" style="--w:88%"></div></div>
+          </div>
+
+          <!-- Node.js -->
+          <div class="skill-card" data-tilt>
+            <div class="skill-icon">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M12 2L4 6.5v7C4 17.6 7.4 21.5 12 22.5c4.6-1 8-4.9 8-9V6.5L12 2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>Node.js</h3>
+            <p>APIs REST, autenticação, bases de dados e back-end escalável.</p>
+            <div class="skill-bar"><div class="skill-fill" style="--w:82%"></div></div>
+          </div>
+
+          <!-- Python -->
+          <div class="skill-card" data-tilt>
+            <div class="skill-icon">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M12 2.5C9 2.5 7.5 3.7 7.5 5.5v2H12v.8H5.8C4 8.3 2.5 9.8 2.5 12s1.5 3.7 3.3 3.7H7.5v-2c0-1.7 1.5-2.7 3.5-2.7H15c2 0 3.5-1.5 3.5-3.5V5.5c0-1.8-1.5-3-4-3H12zm-2 2a.8.8 0 110 1.6.8.8 0 010-1.6z" stroke="currentColor" stroke-width="1.2"/>
+                <path d="M12 21.5c3 0 4.5-1.2 4.5-3v-2H12v-.8h6.2c1.8 0 3.3-1.5 3.3-3.7s-1.5-3.7-3.3-3.7H16.5v2c0 1.7-1.5 2.7-3.5 2.7H9c-2 0-3.5 1.5-3.5 3.5v3c0 1.8 1.5 3 4 3H12zm2-2a.8.8 0 110-1.6.8.8 0 010 1.6z" stroke="currentColor" stroke-width="1.2"/>
+              </svg>
+            </div>
+            <h3>Python</h3>
+            <p>Automação, scripts inteligentes e integração com IA.</p>
+            <div class="skill-bar"><div class="skill-fill" style="--w:78%"></div></div>
+          </div>
+
+          <!-- React Native -->
+          <div class="skill-card" data-tilt>
+            <div class="skill-icon">
+              <svg viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="2" stroke="currentColor" stroke-width="1.6"/>
+                <ellipse cx="12" cy="12" rx="10" ry="3.8" stroke="currentColor" stroke-width="1.5"/>
+                <ellipse cx="12" cy="12" rx="10" ry="3.8" stroke="currentColor" stroke-width="1.5" transform="rotate(60 12 12)"/>
+                <ellipse cx="12" cy="12" rx="10" ry="3.8" stroke="currentColor" stroke-width="1.5" transform="rotate(-60 12 12)"/>
+              </svg>
+            </div>
+            <h3>React Native</h3>
+            <p>Apps mobile iOS & Android com uma única base de código.</p>
+            <div class="skill-bar"><div class="skill-fill" style="--w:80%"></div></div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ PROJETOS ══════════ -->
+    <section class="section projetos-section" id="projetos">
+      <div class="container">
+        <div class="section-label">Projetos</div>
+        <h2 class="section-title">O que eu <em>construí</em></h2>
+
+        <div class="projetos-grid">
+
+          <!-- Projeto 1 -->
+          <article class="projeto-card">
+            <div class="projeto-img projeto-img-1">
+              <div class="projeto-overlay">
+                <a href="#" class="projeto-link" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 00-1.3-3.2 4.2 4.2 0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 00-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 00-.1 3.2A4.6 4.6 0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  Ver no GitHub
+                </a>
+              </div>
+              <div class="projeto-num">01</div>
+            </div>
+            <div class="projeto-info">
+              <div class="projeto-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+              <h3>Projeto em Breve</h3>
+              <p>Descrição do projeto virá aqui. Adiciona o link do GitHub no href acima.</p>
+            </div>
+          </article>
+
+          <!-- Projeto 2 -->
+          <article class="projeto-card">
+            <div class="projeto-img projeto-img-2">
+              <div class="projeto-overlay">
+                <a href="#" class="projeto-link" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 00-1.3-3.2 4.2 4.2 0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 00-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 00-.1 3.2A4.6 4.6 0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  Ver no GitHub
+                </a>
+              </div>
+              <div class="projeto-num">02</div>
+            </div>
+            <div class="projeto-info">
+              <div class="projeto-tags"><span>React Native</span><span>Node.js</span></div>
+              <h3>Projeto em Breve</h3>
+              <p>Descrição do projeto virá aqui. Adiciona o link do GitHub no href acima.</p>
+            </div>
+          </article>
+
+          <!-- Projeto 3 -->
+          <article class="projeto-card">
+            <div class="projeto-img projeto-img-3">
+              <div class="projeto-overlay">
+                <a href="#" class="projeto-link" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 00-1.3-3.2 4.2 4.2 0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 00-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 00-.1 3.2A4.6 4.6 0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  Ver no GitHub
+                </a>
+              </div>
+              <div class="projeto-num">03</div>
+            </div>
+            <div class="projeto-info">
+              <div class="projeto-tags"><span>Python</span><span>Node.js</span></div>
+              <h3>Projeto em Breve</h3>
+              <p>Descrição do projeto virá aqui. Adiciona o link do GitHub no href acima.</p>
+            </div>
+          </article>
+
+          <!-- Projeto 4 -->
+          <article class="projeto-card">
+            <div class="projeto-img projeto-img-4">
+              <div class="projeto-overlay">
+                <a href="#" class="projeto-link" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 00-1.3-3.2 4.2 4.2 0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 00-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 00-.1 3.2A4.6 4.6 0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  Ver no GitHub
+                </a>
+              </div>
+              <div class="projeto-num">04</div>
+            </div>
+            <div class="projeto-info">
+              <div class="projeto-tags"><span>HTML</span><span>CSS</span><span>Python</span></div>
+              <h3>Projeto em Breve</h3>
+              <p>Descrição do projeto virá aqui. Adiciona o link do GitHub no href acima.</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ CONTATO ══════════ -->
+    <section class="section contato-section" id="contato">
+      <div class="container">
+        <div class="section-label">Contato</div>
+        <h2 class="section-title">Vamos <em>conversar</em></h2>
+        <p class="contato-desc">
+          Tens um projeto ou oportunidade em mente? Estou sempre disponível para novas colaborações.
+        </p>
+        <a href="mailto:seuemail@exemplo.com" class="contato-btn">
+          <span>Enviar mensagem</span>
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══════════ FOOTER ══════════ -->
+  <footer class="footer">
+    <div class="container">
+      <span>© 2026 José Paulo. Todos os direitos reservados.</span>
+      <span>Feito com muito café</span>
+      <span class="footer-logo">José Paulo</span>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+/* Nossas cores: Tons de azul marinho e azul vivo */
+:root {
+    --cor-fundo: #0B132B; /* Azul muito escuro e elegante */
+    --cor-fundo-claro: #1C2541; /* Azul escuro para destacar algumas partes */
+    --cor-texto: #F8F9FA; /* Quase branco para a leitura ficar leve */
+    --cor-texto-suave: #A8B2D1; /* Azul acinzentado para textos mais longos */
+    --cor-viva: #4EA8DE; /* Azul vibrante e moderno para chamar atenção */
+}
+
+/* Tirando os espaços que os navegadores colocam sozinhos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Arrumando o visual geral do corpo do site */
+body {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* A cor viva para as palavras que merecem destaque */
+.destaque {
+    color: var(--cor-viva);
+}

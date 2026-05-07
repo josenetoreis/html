@@ -1,0 +1,69 @@
+/* layout.css
+   Comentários em português:
+   - Estrutura: header, hero, grid, footer.
+*/
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: linear-gradient(180deg, rgba(11,18,32,0.6), rgba(11,18,32,0.35));
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  backdrop-filter: blur(6px);
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 0;
+}
+.brand-title { margin: 0; font-size: 1.15rem; color: var(--text); }
+.brand-sub { margin: 0; color: var(--muted); font-size: 0.85rem; }
+.nav a { color: var(--muted); margin-left: 1rem; font-size: 0.95rem; }
+.nav a:hover { color: var(--text); }
+
+/* Hero */
+.hero { padding: 3.25rem 0; }
+.hero-grid {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 2rem;
+  align-items: center;
+  background: var(--card-gradient);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+/* Profile */
+.profile { margin: 0; text-align: center; }
+.profile-photo {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.04);
+  box-shadow: 0 6px 18px rgba(2,6,23,0.6);
+}
+.profile-caption { margin-top: 0.5rem; color: var(--muted); font-size: 0.9rem; }
+
+/* Stack badges */
+.stack-list { display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:0.75rem; padding:0; list-style:none; }
+.stack-list li { background: var(--glass); padding:0.35rem 0.6rem; border-radius:999px; color:var(--muted); font-weight:600; font-size:0.85rem; }
+
+/* Footer */
+.site-footer { border-top:1px solid rgba(255,255,255,0.03); padding:1rem 0; color:var(--muted); }
+.footer-inner { display:flex; justify-content:space-between; align-items:center; gap:1rem; }
+
+/* Responsividade */
+@media (max-width: 980px) {
+  .hero-grid { grid-template-columns: 160px 1fr; gap: 1rem; }
+}
+@media (max-width: 640px) {
+  .header-inner { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+  .hero-grid { grid-template-columns: 1fr; text-align: center; }
+  .profile { order: -1; }
+  .footer-inner { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+}

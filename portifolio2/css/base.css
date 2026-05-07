@@ -1,0 +1,65 @@
+/* base.css
+   Comentários em português:
+   - Reset leve, tipografia e utilitários.
+*/
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: var(--page-gradient);
+  color: var(--text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.45;
+  font-size: var(--base-font-size);
+  transition: background 220ms ease, color 220ms ease;
+}
+
+/* Container */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+/* Links e foco */
+a { color: inherit; text-decoration: none; }
+a:hover { text-decoration: underline; }
+a:focus {
+  outline: 3px solid rgba(96,165,250,0.18);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Botões */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 0.9rem;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: transform 140ms ease, box-shadow 140ms ease, background 140ms ease;
+}
+.btn:active { transform: translateY(1px); }
+
+.btn-primary {
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  color: #04202a;
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+/* Tipografia utilitária */
+.lead { color: var(--muted); margin: 0 0 0.75rem 0; font-size: 1rem; }
+.section-header h3 { margin: 0 0 0.25rem 0; font-size: 1.15rem; }
+.section-sub { color: var(--muted); margin: 0 0 1rem 0; }
